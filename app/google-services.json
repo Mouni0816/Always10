@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693552045395",
+    "firebase_url": "https://dating-d02bc.firebaseio.com",
+    "project_id": "dating-d02bc",
+    "storage_bucket": "dating-d02bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693552045395:android:5ad35423722de1a3c655a6",
+        "android_client_info": {
+          "package_name": "eisti.android.dating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693552045395-8uhv9o85ric7he48mfe6elsobp7vqsds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eisti.android.dating",
+            "certificate_hash": "5a1150c47aa33456ccf9e56eed70ee27fcb03847"
+          }
+        },
+        {
+          "client_id": "693552045395-nkijnikhmu3hufds1cdo7hqi6d8j65mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCDITj25ZzWKFo8_FfwO_XVlyBe2Vwu0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693552045395-nkijnikhmu3hufds1cdo7hqi6d8j65mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

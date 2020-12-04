@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Dating</string>
+    <color name="purple">#800080</color>
 </resources>

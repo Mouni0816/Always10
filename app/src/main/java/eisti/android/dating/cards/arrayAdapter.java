@@ -1,4 +1,4 @@
-package eisti.android.dating;
+package eisti.android.dating.cards;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
+import eisti.android.dating.R;
+import eisti.android.dating.cards.cards;
 
 public class arrayAdapter extends ArrayAdapter<cards> {
     Context context;

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,10 +25,14 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 import java.util.List;
 
+import eisti.android.dating.Matches.MatchesActivity;
+import eisti.android.dating.cards.arrayAdapter;
+import eisti.android.dating.cards.cards;
+
 public class MainActivity extends AppCompatActivity {
 
     private cards cards_data;
-    private arrayAdapter arrayAdapter;
+    private eisti.android.dating.cards.arrayAdapter arrayAdapter;
     private int i;
     private FirebaseAuth mAuth;
     private String currentUid;
@@ -113,8 +116,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     Toast.makeText(MainActivity.this,"NEW MATCH",Toast.LENGTH_LONG).show();
-                    userDb.child(snapshot.getKey()).child("connections").child("matches").child(currentUid).setValue(true);
-                    userDb.child(currentUid).child("connections").child("matches").child(snapshot.getKey()).setValue(true);
+
+                    String key=FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
+
+
+                    userDb.child(snapshot.getKey()).child("connections").child("matches").child(currentUid).child("ChatId").setValue(key);
+
+                    userDb.child(currentUid).child("connections").child("matches").child(snapshot.getKey()).child("ChatId").setValue(key);
                 }
             }
 
@@ -162,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         userDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if (snapshot.child("sex").getValue()!=null){
 
                 if (snapshot.exists()&& !snapshot.child("connections").child("nope").hasChild(currentUid) && !snapshot.child("connections").child("yeps").hasChild(currentUid) && snapshot.child("sex").getValue().toString().equals(oppositeUsersex)){
                     String profileImageUrl = "default";
@@ -175,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
-            }
+            }}
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
             }
@@ -207,5 +216,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         return;
 
+    }
+
+    public void goToMatches(View view) {
+        Intent intent=new Intent (MainActivity.this, MatchesActivity.class);
+        startActivity(intent);
+        return;
     }
 }

@@ -1,4 +1,4 @@
-package eisti.android.dating;
+package eisti.android.dating.cards;
 
 public class cards {
     private String userId;
